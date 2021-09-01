@@ -1,5 +1,6 @@
 # AWS-SDKJSV3-Examples
-A simple repo to show, how to use the new V3 Javascript SDK
+A simple repo to show, how to use the new [V3 Javascript SDK](https://github.com/aws/aws-sdk-js-v3)
+Please read the [documentation](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest) for further questions
 
 ## Prerequisites
 
