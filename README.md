@@ -3,7 +3,7 @@ A simple repo to show, how to use the new V3 Javascript SDK
 
 ## Prerequisites
 
-First you need to [install Node.js](https://nodejs.org/en/download/) 10.3.0 or later. The AWS CDK Toolkit (cdk command-line tool) and the AWS Construct Library are developed in TypeScript and run on Node.js. The bindings for other supported languages use this back end and tool set. We suggest the latest LTS version.
+First you need to [install Node.js](https://nodejs.org/en/download/) 14.17.1 or later. The bindings for other supported languages use this back end and tool set. We suggest the latest LTS version.
 
 You must provide your credentials and an AWS Region to use AWS CDK, if you have not already done so.
 
