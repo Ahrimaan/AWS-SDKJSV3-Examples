@@ -2,6 +2,13 @@
 A simple repo to show, how to use the new [V3 Javascript SDK](https://github.com/aws/aws-sdk-js-v3)
 Please read the [documentation](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest) for further questions
 
+## ec2-tagging.js
+
+Example how to iterate trough all EC2 Instances and add a Tag to each of them
+
+Usage : 
+
+
 ## Prerequisites
 
 First you need to [install Node.js](https://nodejs.org/en/download/) 14.17.1 or later. The bindings for other supported languages use this back end and tool set. We suggest the latest LTS version.
