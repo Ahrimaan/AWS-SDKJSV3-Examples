@@ -1,23 +1,25 @@
-import { EC2Client, DescribeInstancesCommand, CreateTagsCommand } from '@aws-sdk/client-ec2'
+const { EC2Client, DescribeInstancesCommand, CreateTagsCommand } = require('@aws-sdk/client-ec2')
+const args = require('args-parser')(process.argv);
+
+const tag = [{ Key: args.tagKey, Value: args.tagValue }]
 
 const checkAndAddTag = async () => {
     let ec2client = new EC2Client({
-        apiVersion: '2016-11-15',
-        region: 'eu-central-1'
+        apiVersion: 'latest'
     });
     try {
         // Get All Instances in the specific Region
         let data = await ec2client.send(new DescribeInstancesCommand({}));
         // Crawl trough all reservations
-        for (let reservation of data.Reservations){
+        for (let reservation of data.Reservations) {
             // Crawl trough all instances
-            for(let instance of reservation.Instances) {
-                let createTagCommand = new CreateTagsCommand({ Tags: [{ Key:"TEST",Value:"TEST" }] , Resources : [`${instance.InstanceId}`] })
+            for (let instance of reservation.Instances) {
+                let createTagCommand = new CreateTagsCommand({ Tags: tag, Resources: [`${instance.InstanceId}`] })
                 let result = await ec2client.send(createTagCommand);
                 console.log(result.$metadata);
             }
         }
-      } catch (err) {
+    } catch (err) {
         console.log("Error", err);
     }
 }
@@ -26,4 +28,15 @@ const main = async () => {
     await checkAndAddTag();
 }
 
-main();
+if (!args.tagKey) {
+    console.log('Please add a TagKey with console argument tagKey=YourTagKey')
+}
+
+if (!args.tagValue) {
+    console.log('Please add a tagValue with console argument tagValue=TagValue')
+}
+
+if (args.tagKey && args.tagValue) {
+    main();
+}
+

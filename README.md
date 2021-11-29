@@ -7,7 +7,7 @@ Please read the [documentation](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/
 Example how to iterate trough all EC2 Instances and add a Tag to each of them
 
 Usage : 
-
+node ec2-tagging.js tagKey=YourKey tagValue=YourValue
 
 ## Prerequisites
 
